@@ -12935,3 +12935,42 @@ div.v-layout.v-horizontal.v-widget {
 	width: 19px;
 	overflow: hidden;
 }
+
+.tokenfield .attachment-btn .v-button-caption, .tokenfield .attachment-tf-btn .v-button-link.tf-btn .v-button-caption {
+	color: #1A1A1A;
+}
+
+.tokenfield .attachment-btn .v-button-caption .att-size, .tokenfield .attachment-tf-btn .v-button-link.tf-btn .v-button-caption .att-size {
+	color: #666;
+	display: inline-block;
+	font-size: 12px;
+	margin-left: 11px;
+}
+
+.tokenfield .recipient-tf-btn .tf-btn {
+	position: relative;
+	top: 3px;
+	margin-right: 16px;
+	vertical-align: top;
+	margin-bottom: 3px;
+}
+
+.tokenfield .label-tf-btn .v-filterselect + .tf-btn.v-button.v-widget.link.v-button-link {
+	margin-left: 16px !important;
+}
+
+.tokenfield .tokenfield-button .tf-remove-btn {
+	width: 20px !important;
+	height: 20px !important;
+	text-align: center !important;
+	margin-right: -5px !important;
+	margin-left: 6px !important;
+}
+
+.tokenfield .tf-btn {
+	position: relative;
+	top: 3px;
+	margin-right: 16px;
+	vertical-align: top;
+	margin-bottom: 3px;
+}

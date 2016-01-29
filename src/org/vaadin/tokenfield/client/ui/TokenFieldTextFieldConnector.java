@@ -38,9 +38,9 @@ public class TokenFieldTextFieldConnector extends TextFieldConnector {
     }
 
     @Override
-    protected VTokenField createWidget() {
+    protected VTokenField2 createWidget() {
         // TODO Auto-generated method stub
-        return GWT.create(VTokenField.class);
+        return GWT.create(VTokenField2.class);
     }
 
 }

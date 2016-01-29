@@ -417,7 +417,7 @@ public class TokenFieldTextField extends CustomField implements Container.Editor
 					blockValueChange = true;
 					cb.setValue("");
 					
-					//cb.focus();
+					cb.focus();
 				}
 			}
 
