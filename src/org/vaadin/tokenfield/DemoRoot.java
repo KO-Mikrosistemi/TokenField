@@ -13,6 +13,7 @@ import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.shared.ui.combobox.FilteringMode;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -28,6 +29,7 @@ import com.vaadin.ui.ListSelect;
 import com.vaadin.ui.NativeSelect;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
+
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -64,13 +66,44 @@ public class DemoRoot extends UI {
                 hl.setSpacing(true);
                 TokenFieldTextField f = new TokenFieldTextField(hl, org.vaadin.tokenfield.TokenFieldTextField.InsertPosition.AFTER) {
 
-                    /*@Override
-                    protected void onTokenClick(Object tokenId) {
-                        String[] tokens = ((String) tokenId).split(",");
-                       System.out.println(tokenId);
-                    }*/};
-                l.addComponent(f);
+        			@Override
+        			protected void onTokenInput(Object tokenId) {
+        					addToken(tokenId);
+        			}
 
+        			@Override
+        			protected void onTokenClick(Object tokenId) {
+        				super.onTokenClick(tokenId);
+        		
+        			}
+
+        			@Override
+        			protected void onTokenDelete(Object tokenId) {
+        				super.onTokenClick(tokenId);
+        			}
+
+        			@Override
+        			protected void configureTokenButton(Object tokenId, Button button) {
+        				super.configureTokenButton(tokenId, button);
+        				button.setDescription("Delete");
+        				button.addStyleName(TokenFieldButtonStyle.TOKENFIELD_BUTTON.getStyleName());
+        			}
+        			};
+                l.addComponent(f);
+        		f.getLayout().addStyleName(TokenFieldButtonStyle.FOR_RECIPIENTS.getStyleName());
+        		f.setImmediate(true);
+        		// poBoxNameTokenField.setRememberNewTokens(false);
+        		f.setInputPrompt("Enter pobox");
+        		f.setInputWidth("260px");
+        		// poBoxNameTokenField.setFilteringMode(FilteringMode.CONTAINS); //
+        		// suggest
+        		f.setSizeUndefined();
+        		f.setWidth(100, Unit.PERCENTAGE);
+        		// poBoxNameTokenField.addStyleName("width-100per");
+        		// poBoxNameTokenField.addStyleName(ThemeHelper.StyleName.RECIPIENTS_TOKEN_FIELD.getStyleName());
+        		f.setTokenInsertPosition(org.vaadin.tokenfield.TokenFieldTextField.InsertPosition.BEFORE);
+        		// poBoxNameTokenField.setRememberNewTokens(true);
+        		f.getCb().setImmediate(true);
             }
             
             
