@@ -8,6 +8,8 @@ public class CustomButton extends HorizontalLayout{
 	private Button closeButton = null;
 	
 	public static final String CUSTOM_BUTTON = "×";
+	public static final String CUSTOM_BUTTON_BIG = "\u2716";
+	public static final String CUSTOM_BUTTON_SMALL = "\u00D7";
 	
 	public CustomButton() {
 		super();

@@ -1,9 +1,25 @@
 @import "../valo/valo.scss";
 
-@mixin tokenfield {
-  @include valo;
+@import "components/textfield.scss";
 
-.attachment-btn .v-button-caption,
+@mixin tokenfield {
+  	@include valo;
+
+	@include tokenfield-textfield;
+
+
+	* {
+		font-family: 'Open Sans', 'Lucida Grande', sans-serif;
+	}
+	
+	.v-app {
+		font-family: 'Open Sans', 'Lucida Grande', sans-serif;
+		font-size: 14px;
+		font-weight: 300;
+		letter-spacing: -0.5px;
+	}
+
+	.attachment-btn .v-button-caption,
 	.attachment-tf-btn .v-button-link.tf-btn .v-button-caption {
 		color: #1A1A1A;
 	}
@@ -42,5 +58,18 @@
 	    margin-right: 16px;
 	    vertical-align: top;
 	    margin-bottom: 3px;
+	}
+	
+	.tokenfield .v-button-caption {
+		display: inline-block;
+    	margin-top: -1em;
+	}
+	
+	.v-widget.tokenfield .v-csslayout .v-button-link {
+		height: 30px;
+	}
+	
+	.v-filterselect-suggestpopup {
+		display: none;
 	}
 }
