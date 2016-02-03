@@ -414,13 +414,8 @@ public class TokenFieldTextField extends CustomField implements Container.Editor
 				final Object tokenId = event.getProperty().getValue();
 				if (tokenId != null || tokenId != "") {
 					onTokenInput(tokenId);
-					blockValueChange = true;
-					cb.setValue("");
-					
-					cb.focus();
 				}
 			}
-
 		});
 
 		/*cb.addShortcutListener(new ShortcutListener("Shortcut Name", ShortcutAction.KeyCode.ENTER, null) {
@@ -447,6 +442,12 @@ public class TokenFieldTextField extends CustomField implements Container.Editor
 
 	}
 
+	public void clearTextFiled() {
+		blockValueChange = true;
+		cb.setValue("");
+		cb.focus();
+	}
+	
 	/*
 	 * Rebuilds from scratch
 	 */

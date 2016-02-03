@@ -15,6 +15,7 @@ import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.data.util.BeanItemContainer;
+import com.vaadin.server.UserError;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.shared.ui.combobox.FilteringMode;
 import com.vaadin.ui.Alignment;
@@ -58,7 +59,7 @@ public class DemoRoot extends UI {
 
 		CssLayout keywordsTokenFieldLayout = new CssLayout();
 		keywordsTokenField = new TokenField(keywordsTokenFieldLayout,
-				org.vaadin.tokenfield.TokenField.InsertPosition.AFTER) {
+				org.vaadin.tokenfield.TokenField.InsertPosition.BEFORE) {
 			/**
 			 * 
 			 */
@@ -73,7 +74,11 @@ public class DemoRoot extends UI {
 				if (!chosenTokenList.contains(tokenId)) {
 					super.onTokenInput(tokenId);
 					chosenTokenList.add(tokenId.toString());
+					super.getCb().setComponentError(null);
+				}else {
+					super.getCb().setComponentError(new UserError("Error: invalid value"));
 				}
+				super.clearTextFiled();
 			}
 
 			@Override
@@ -147,7 +152,7 @@ public class DemoRoot extends UI {
 
 				hl.setSpacing(true);
 				TokenFieldTextField f = new TokenFieldTextField(hl,
-						org.vaadin.tokenfield.TokenFieldTextField.InsertPosition.AFTER) {
+						org.vaadin.tokenfield.TokenFieldTextField.InsertPosition.BEFORE) {
 
 					@Override
 					protected void onTokenInput(Object tokenId) {

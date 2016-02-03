@@ -363,7 +363,7 @@ public class TokenField extends CustomField implements Container.Editor {
         cb.setImmediate(true);
         cb.setNewItemsAllowed(true);
         cb.setNullSelectionAllowed(false);
-        cb.addListener(new ComboBox.ValueChangeListener() {
+        cb.addValueChangeListener(new ComboBox.ValueChangeListener() {
 
             private static final long serialVersionUID = 4370326413130922134L;
 
@@ -372,8 +372,6 @@ public class TokenField extends CustomField implements Container.Editor {
                 final Object tokenId = event.getProperty().getValue();
                 if (tokenId != null) {
                     onTokenInput(tokenId);
-                    cb.setValue(null);
-                    cb.focus();
                 }
             }
         });
@@ -402,6 +400,11 @@ public class TokenField extends CustomField implements Container.Editor {
 
     }
 
+	public void clearTextFiled() {
+		cb.setValue(null);
+		cb.focus();
+	}
+    
     protected void rememberToken(String tokenId) {
         if (cb.addItem(getTokenCaption(tokenId)) != null) {
             // Sets the caption property, if used
